@@ -1,0 +1,10 @@
+INSERT INTO store_products VALUES (1, 'candy', 'description', SYSDATE());
+INSERT INTO store_products VALUES (2, 'candy', 'description', SYSDATE());
+INSERT INTO store_products VALUES (3, 'candy', 'description', SYSDATE());
+INSERT INTO store_products VALUES (4, 'candy', 'description', SYSDATE());
+INSERT INTO store_products VALUES (5, 'candy', 'description', SYSDATE());
+INSERT INTO store_products VALUES (6, 'candy', 'description', SYSDATE());
+INSERT INTO store_products VALUES (7, 'candy', 'description', SYSDATE());
+INSERT INTO store_products VALUES (8, 'candy', 'description', SYSDATE());
+INSERT INTO store_products VALUES (9, 'candy', 'description', SYSDATE());
+INSERT INTO store_products VALUES (10, 'candy', 'description', SYSDATE());
