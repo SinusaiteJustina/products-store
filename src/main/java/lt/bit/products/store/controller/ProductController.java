@@ -2,11 +2,10 @@ package lt.bit.products.store.controller;
 
 import java.util.List;
 
+import lt.bit.products.store.model.Item;
 import lt.bit.products.store.model.Product;
 import lt.bit.products.store.model.ProductRequest;
 import lt.bit.products.store.service.ProductService;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +16,7 @@ class ProductController {
 
     public static final String ROOT_MAPPING = "/products";
     public static final String ID_MAPPING = "/{id}";
+
     private final ProductService service;
 
     public ProductController(ProductService service) {
@@ -45,7 +45,7 @@ class ProductController {
     }
 
     @GetMapping(ID_MAPPING)
-    ResponseEntity<Product> fetchProducts(@PathVariable Integer id) {
+    ResponseEntity<Product> fetchProduct(@PathVariable Integer id) {
         Product product = service.findProduct(id);
         if (product == null) {
             return ResponseEntity.notFound().build();
@@ -62,6 +62,11 @@ class ProductController {
         service.deleteProduct(productId);
         return ResponseEntity.noContent().build();
 
+    }
+    @GetMapping(ID_MAPPING + "/items")
+    ResponseEntity<Item> fetchItem(@PathVariable("id") Integer productId) {
+        Item items = service.findItem(productId);
+        return items == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(items);
     }
 
 }
