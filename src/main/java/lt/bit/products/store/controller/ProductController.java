@@ -63,6 +63,10 @@ class ProductController {
         return ResponseEntity.noContent().build();
 
     }
+    @GetMapping( "/count")
+    long  countProducts() {
+        return service.countProducts();
+    }
     @GetMapping(ID_MAPPING + "/items")
     ResponseEntity<Item> fetchItem(@PathVariable("id") Integer productId) {
         Item items = service.findItem(productId);
