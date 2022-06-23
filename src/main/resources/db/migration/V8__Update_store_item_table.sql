@@ -1,0 +1,1 @@
+ALTER TABLE store_items ADD COLUMN price NUMERIC(20, 2) DEFAULT 0;
